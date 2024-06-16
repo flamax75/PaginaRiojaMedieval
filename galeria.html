@@ -10,7 +10,6 @@
 
 <body>
     <header>
-        <h1>Asociacion Rioja Medieval</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -25,13 +24,20 @@
 
     <section id="galeria">
         <h2>Galería</h2>
-        <p>Fotos y videos de nuestras actividades.</p>
+        <div class="gallery">
+            <div class="gallery-item" data-image-front="images/photo1.jpg" data-image-back="images/photo2.jpg"></div>
+            <div class="gallery-item" data-image-front="images/photo3.jpg" data-image-back="images/photo4.jpg"></div>
+            <div class="gallery-item" data-image-front="images/photo5.jpg" data-image-back="images/photo6.jpg"></div>
+            <div class="gallery-item" data-image-front="images/photo7.jpg" data-image-back="images/photo8.jpg"></div>
+        </div>
         <button onclick="location.href='index.html'">Volver a la página principal</button>
     </section>
 
     <footer>
         <p>&copy; 2024 Asociacion Rioja Medieval. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
