@@ -75,6 +75,16 @@ nav ul li a {
     color: burlywood;
 }
 
+
+section#sobre-nosotros .content {
+    font-family: 'Dancing Script', cursive;
+    padding: 20px;
+    margin-top: 60px;
+    /* Adjusted to account for fixed header */
+    flex: 1;
+
+}
+
 section#galeria {
     padding: 20px;
     margin-top: 60px;
