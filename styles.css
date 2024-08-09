@@ -1,15 +1,17 @@
 body {
     font-family: 'Garamond', serif;
-    background-color: #f4f4f4;
-    color: #333;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8);
+    /* Translucent background for the nav bar */
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -21,30 +23,141 @@ header {
 
 nav ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
-section {
+.hero {
+    background-image: url('images/web2.jpg');
+    /* Adjusted path to the image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
     padding: 20px;
-    margin: 120px 20px 60px 20px;
-    /* Ajusta el margen superior e inferior */
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Overlay with opacity */
+}
+
+.hero h1 {
+    font-size: 7em;
+    /* 3 times the original size */
+    font-family: 'Dancing Script', cursive;
+    /* Font with a cursive style */
+    z-index: 1;
+    margin: 0;
+    position: relative;
+    color: bisque;
+}
+
+section#sobre-nosotros .content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    /* Make text larger */
+    padding: 20px;
+    margin-top: 80px;
+    /* Adjusted to account for fixed header */
+    margin-bottom: 80px;
+    /* Adjusted to account for fixed footer */
+    flex: 1;
+    background-color: bisque;
+}
+
+section#galeria {
+    padding: 20px;
+    margin-top: 60px;
+    /* Adjusted to account for fixed header */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(10, 6, 0);
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
+    /* Adjusted height to account for header and footer */
+    width: 100%;
+}
+
+.gallery-item {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.gallery-item-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 2s;
+    /* Changed duration from 1s to 2s for slower rotation */
+}
+
+.gallery-item-inner.rotate-right {
+    transform: rotateY(180deg);
+}
+
+.gallery-item-inner.rotate-left {
+    transform: rotateY(-180deg);
+}
+
+.gallery-item-front,
+.gallery-item-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    /* Ensures the image is fully visible */
+    background-repeat: no-repeat;
+    background-position: center;
+    backface-visibility: hidden;
+}
+
+.gallery-item-back {
+    transform: rotateY(180deg);
 }
 
 footer {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8);
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -56,7 +169,7 @@ footer {
 
 button {
     display: block;
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -67,4 +180,55 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+/* Media Queries para hacer el diseño responsivo */
+
+/* Pantallas pequeñas (Móviles en vertical) */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 4em;
+        /* Reducción del tamaño de la fuente para pantallas pequeñas */
+    }
+
+    nav ul li {
+        margin-right: 10px;
+        /* Reducir el margen entre los elementos del menú en pantallas pequeñas */
+    }
+
+    section#sobre-nosotros .content {
+        font-size: 1.5em;
+        /* Reducir el tamaño del texto para pantallas pequeñas */
+        margin-top: 100px;
+        /* Ajustar margen superior */
+        margin-bottom: 100px;
+        /* Ajustar margen inferior */
+    }
+
+    section#galeria {
+        padding: 10px;
+        /* Reducir padding en pantallas pequeñas */
+    }
+}
+
+/* Pantallas medianas (Tabletas en vertical) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 5em;
+        /* Tamaño de la fuente adaptado para tabletas */
+    }
+
+    section#sobre-nosotros .content {
+        font-size: 1.8em;
+        /* Ajustar el tamaño del texto en tabletas */
+        margin-top: 80px;
+        /* Ajustar margen superior */
+        margin-bottom: 80px;
+        /* Ajustar margen inferior */
+    }
+
+    section#galeria {
+        padding: 15px;
+        /* Ajustar padding en tabletas */
+    }
 }
