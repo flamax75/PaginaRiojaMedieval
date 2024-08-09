@@ -1,4 +1,4 @@
-bbody {
+body {
     font-family: 'Garamond', serif;
     margin: 0;
     padding: 0;
@@ -26,11 +26,14 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 nav ul li a {
@@ -51,6 +54,8 @@ nav ul li a {
     align-items: center;
     text-align: center;
     color: white;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .hero::before {
@@ -91,7 +96,6 @@ section#sobre-nosotros .content {
 section#galeria {
     padding: 20px;
     margin-top: 60px;
-
     /* Adjusted to account for fixed header */
     flex: 1;
     display: flex;
@@ -176,4 +180,55 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+/* Media Queries para hacer el diseño responsivo */
+
+/* Pantallas pequeñas (Móviles en vertical) */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 4em;
+        /* Reducción del tamaño de la fuente para pantallas pequeñas */
+    }
+
+    nav ul li {
+        margin-right: 10px;
+        /* Reducir el margen entre los elementos del menú en pantallas pequeñas */
+    }
+
+    section#sobre-nosotros .content {
+        font-size: 1.5em;
+        /* Reducir el tamaño del texto para pantallas pequeñas */
+        margin-top: 100px;
+        /* Ajustar margen superior */
+        margin-bottom: 100px;
+        /* Ajustar margen inferior */
+    }
+
+    section#galeria {
+        padding: 10px;
+        /* Reducir padding en pantallas pequeñas */
+    }
+}
+
+/* Pantallas medianas (Tabletas en vertical) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 5em;
+        /* Tamaño de la fuente adaptado para tabletas */
+    }
+
+    section#sobre-nosotros .content {
+        font-size: 1.8em;
+        /* Ajustar el tamaño del texto en tabletas */
+        margin-top: 80px;
+        /* Ajustar margen superior */
+        margin-bottom: 80px;
+        /* Ajustar margen inferior */
+    }
+
+    section#galeria {
+        padding: 15px;
+        /* Ajustar padding en tabletas */
+    }
 }
